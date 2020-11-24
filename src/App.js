@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./App.css";
+import nasaImage from "./images/nasa.png"
+import spacexImage from "./images/spacex.png"
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -20,16 +22,41 @@ const App = () => {
     getPhotoOfTheDay.current();
   }, [getPhotoOfTheDay]);
 
+  const appStyle = {
+    width: "80%",
+    margin: "20px auto",
+    justifyContent: "center",
+    color: "white",
+    background: "#323232",
+    textAlign: "center"
+  }
+
+  const imgStyle = {
+    width: 600,
+    height: "auto",
+    borderRadius: 30
+  }
+
+  const logoStyle = {
+    height: 150,
+    width: "auto"
+  }
+
   return (
-    <div className="App">
-      <h1>NASA</h1>
-      <h2>Astronomy Picture of the Day</h2>
-      <p>{data.copyright}</p>
-      <p>{data.date}</p>
-      <p>{data.title}</p>
-      <img src={data.hdurl} alt={data.title} />
-      <p>{data.explanation}</p>
-    </div>
+    <div style={appStyle}>
+        <div style={{display: "flex", justifyContent: "center"}}>
+          <img style={logoStyle} src={nasaImage} alt="nasa"/>
+          <img style={logoStyle} src={spacexImage} alt="spacex"/>
+        </div>
+          <h1>{data.title}</h1>
+          <img style={imgStyle} src={data.hdurl} alt={data.title} />
+          <h3>{data.date}</h3>
+          <div style={{width: 800, margin: "auto", textAlign: "center"}}>
+            <p>{data.explanation}</p>
+            <br/>
+            <p>{data.copyright}</p>
+          </div>
+      </div>
   );
 };
 
