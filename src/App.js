@@ -4,6 +4,7 @@ import "./App.css";
 import nasaImage from "./images/nasa.png";
 import spacexImage from "./images/spacex.png";
 import Ticker from "react-ticker";
+import helmetImage from "./images/helmet.png";
 
 const App = () => {
     const [data, setData] = useState([]);
@@ -27,9 +28,10 @@ const App = () => {
         width: "80%",
         margin: "20px auto",
         justifyContent: "center",
-        color: "white",
-        background: "#323232",
+        color: "#323232",
         textAlign: "center",
+        backgroundImage: `url(${helmetImage}) no-repeat`,
+        backgroundSize: "cover",
     };
 
     const imgStyle = {
